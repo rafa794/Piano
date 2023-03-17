@@ -1,0 +1,111 @@
+html {
+  background-color: #444444;
+}
+/* Estilos generales del piano */
+.piano * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.piano {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #f2f2f2;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 90%; /* se ajusta al 90% del ancho de la pantalla */
+  max-width: 1200px; /* máximo ancho del piano */
+  height: 50vh; /* se ajusta al 50% del alto de la pantalla */
+  padding: 2%; /* espacio interno entre teclas */
+}
+
+/* Estilos de las teclas blancas */
+.blanca {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-right: 1%; /* espacio horizontal entre teclas */
+  margin-bottom: 2.5%; /* espacio vertical entre teclas */
+  width: 6%; /* ancho relativo */
+  height: 70%; /* altura relativa */
+  position: relative;
+  cursor: pointer;
+}
+
+/* Efecto de presionado de las teclas blancas */
+.blanca:active {
+  top: 2px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos de las teclas negras */
+.negra {
+  background-color: #000;
+  border: 1px solid #333;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-left: -3.8%; /* espacio horizontal entre teclas */
+  width: 4%; /* ancho relativo */
+  height: 45%; /* altura relativa */
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Efecto de presionado de las teclas negras */
+.negra:active {
+  top: 2px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.blanca,
+.negra {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none;
+}
+
+/* Estilos para pantalla mayor a 420px */
+@media only screen and (min-width: 420px) {
+  /* En este caso, no necesitas aplicar ningún estilo ya que deseas que el piano sea visible */
+  .gira-pantalla {
+    display: none;
+  }
+}
+
+/* Estilos para pantalla menor a 420px */
+@media only screen and (max-width: 420px) {
+  /* Ocultar todo el contenido del body */
+  body * {
+    display: none;
+  }
+  html {
+    background-color: #333;
+  }
+
+  /* Agregar un mensaje de advertencia */
+  body::before {
+    content: "Gira la pantalla";
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #444;
+    padding: 2rem;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* nueva propiedad */
+  }
+}
