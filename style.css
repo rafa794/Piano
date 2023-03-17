@@ -53,7 +53,7 @@ html {
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   margin-left: -3.8%; /* espacio horizontal entre teclas */
-  width: 4%; /* ancho relativo */
+  width: 3.9%; /* ancho relativo */
   height: 45%; /* altura relativa */
   position: relative;
   z-index: 1;
