@@ -38,3 +38,72 @@ botones.forEach(function (boton) {
     sonidos[notaPulsada].play();
   });
 });
+/ Asignar teclas del teclado a las teclas del piano
+const teclas = {
+  a: "c3",
+  w: "ca3",
+  s: "d3",
+  e: "da3",
+  d: "e3",
+  f: "f3",
+  t: "fa3",
+  g: "g3",
+  y: "ga3",
+  h: "a4",
+  u: "aa4",
+  j: "b4",
+  k: "c4",
+  o: "ca4",
+  l: "d4",
+  p: "da4",
+  ñ: "e4",
+  "'": "f4",
+  "]": "fa4",
+  "\\": "g4",
+  Enter: "ga4",
+  z: "a5",
+  x: "aa5",
+  c: "b5",
+};
+
+function reproducirNota(nota) {
+  sonidos[nota].currentTime = 0;
+  sonidos[nota].play();
+}
+
+// Función para verificar si se están pulsando más de 4 teclas
+function verificarTeclasPulsadas() {
+  const teclasPulsadasCount = Object.keys(teclasPulsadas).length;
+  if (teclasPulsadasCount > 4) {
+    alert("Solo puedes pulsar hasta 4 teclas a la vez.");
+    return false;
+  }
+  return true;
+}
+
+// Función para detectar la pulsación de teclas
+function detectarPulsacion(event) {
+  if (!teclas[event.key]) {
+    return;
+  }
+  if (!verificarTeclasPulsadas()) {
+    event.preventDefault();
+    return;
+  }
+  if (!teclasPulsadas[event.key]) {
+    teclasPulsadas[event.key] = true;
+    reproducirNota(teclas[event.key]);
+  }
+}
+
+// Función para detectar la liberación de teclas
+function detectarLiberacion(event) {
+  if (!teclas[event.key]) {
+    return;
+  }
+  delete teclasPulsadas[event.key];
+}
+
+// Detectar la pulsación y liberación de teclas del teclado
+document.addEventListener("keydown", detectarPulsacion);
+document.addEventListener("keyup", detectarLiberacion);
