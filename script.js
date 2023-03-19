@@ -38,7 +38,7 @@ botones.forEach(function (boton) {
     sonidos[notaPulsada].play();
   });
 });
-/ Asignar teclas del teclado a las teclas del piano
+// Asignar teclas del teclado a las teclas del piano
 const teclas = {
   a: "c3",
   w: "ca3",
