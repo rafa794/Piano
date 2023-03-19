@@ -24,21 +24,6 @@ const notas = [
   { nombre: "aa5", archivo: "./notas/aa5.mp3" },
   { nombre: "b5", archivo: "./notas/b5.mp3" },
 ];
-
-let sonidos = {};
-notas.forEach((nota) => {
-  sonidos[nota.nombre] = new Audio(nota.archivo);
-});
-const botones = document.querySelectorAll("button.tecla");
-
-botones.forEach(function (boton) {
-  boton.addEventListener("click", function () {
-    const notaPulsada = this.getAttribute("data-nota");
-    sonidos[notaPulsada].currentTime = 0; // Reiniciar la posición de la pista antes de reproducirla.
-    sonidos[notaPulsada].play();
-  });
-});
-// Asignar teclas del teclado a las teclas del piano
 const teclas = {
   a: "c3",
   w: "ca3",
@@ -64,8 +49,11 @@ const teclas = {
   z: "a5",
   x: "aa5",
   c: "b5",
-};
+  };
 
+  const teclasPulsadas = {}; // Objeto para almacenar las teclas pulsadas
+
+// Asignar teclas del teclado a las teclas del piano
 function reproducirNota(nota) {
   sonidos[nota].currentTime = 0;
   sonidos[nota].play();
@@ -107,3 +95,17 @@ function detectarLiberacion(event) {
 // Detectar la pulsación y liberación de teclas del teclado
 document.addEventListener("keydown", detectarPulsacion);
 document.addEventListener("keyup", detectarLiberacion);
+
+let sonidos = {};
+notas.forEach((nota) => {
+  sonidos[nota.nombre] = new Audio(nota.archivo);
+});
+const botones = document.querySelectorAll("button.tecla");
+
+botones.forEach(function (boton) {
+  boton.addEventListener("click", function () {
+    const notaPulsada = this.getAttribute("data-nota");
+    sonidos[notaPulsada].currentTime = 0; // Reiniciar la posición de la pista antes de reproducirla.
+    sonidos[notaPulsada].play();
+  });
+})
