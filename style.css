@@ -41,9 +41,9 @@ html {
 }
 
 /* Efecto de presionado de las teclas blancas */
-.blanca:active {
+.blanca:active, .presionado {
   top: 2px;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
 /* Estilos de las teclas negras */
