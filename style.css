@@ -85,7 +85,7 @@ html {
 @media only screen and (max-width: 420px) {
   /* Ocultar todo el contenido del body */
   body * {
-    display: none;
+    display: none !important;
   }
   html {
     background-color: #333;

@@ -59,16 +59,11 @@ function reproducirNota(nota) {
   sonidos[nota].play();
   teclaPresionada.classList.add("presionado");
 }
-document.addEventListener("keydown", function (event) {
-    console.log(event.key);
-})
-
 // Función para detectar la pulsación de teclas
 function detectarPulsacion(event) {
   if (!teclas[event.key]) {
     return;
-  }
-  
+  }  
   if (!teclasPulsadas[event.key]) {
     teclasPulsadas[event.key] = true;
     reproducirNota(teclas[event.key]);
