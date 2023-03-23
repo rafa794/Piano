@@ -22,7 +22,7 @@ const notas = [
   { nombre: "laB2", archivo: "./notas/laB2.mp3" },
   { nombre: "la2", archivo: "./notas/la2.mp3" },
   { nombre: "siB2", archivo: "./notas/siB2.mp3" },
-  { nombre: "si2", archivo: "./notas/si2.mp3dñ" },
+  { nombre: "si2", archivo: "./notas/si2.mp3" },
 ];
 const teclas = {
   a: "do1",
